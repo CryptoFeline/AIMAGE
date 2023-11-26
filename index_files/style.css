@@ -2009,10 +2009,6 @@ textarea.w-select {
   position: relative;
 }
 
-.w-nav-link.w--current {
-  color: #0082f3;
-}
-
 .w-nav-menu {
   float: right;
   position: relative;
@@ -2673,11 +2669,6 @@ a:hover {
 
 .navbar-link:hover {
   color: var(--white);
-}
-
-.navbar-link.w--current {
-  color: var(--primary);
-  text-shadow: 0 0 5px #8a5c957d;
 }
 
 .icon-wrapper {
