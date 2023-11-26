@@ -2676,7 +2676,8 @@ a:hover {
 }
 
 .navbar-link.w--current {
-  color: #000;
+  color: var(--primary);
+  text-shadow: 0 0 5px #8a5c957d;
 }
 
 .icon-wrapper {
