@@ -1524,10 +1524,6 @@ textarea.w-select {
   display: block;
 }
 
-.w-dropdown-link.w--current {
-  color: #0082f3;
-}
-
 .w-dropdown-link:focus {
   outline: 0;
 }
@@ -2167,10 +2163,6 @@ textarea.w-select {
   text-decoration: none;
   display: inline-block;
   position: relative;
-}
-
-.w-tab-link.w--current {
-  background-color: #c8c8c8;
 }
 
 .w-tab-link:focus {
@@ -3540,6 +3532,31 @@ a:hover {
   font-size: 54px;
   font-weight: 500;
   line-height: 1.1;
+}
+
+@keyframes flashFlow {
+  0%, 30% {
+      background-position: -50% 0%;
+      color: #441e4d;
+  }
+  15% {
+      background-position: 100% 100%;
+      color: transparent;
+  }
+  30%, 100% {
+      background-position: -50% 0%;
+      color: #441e4d;
+  }
+}
+
+.animated_text {
+  background: linear-gradient(-45deg, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #68496f, #ffffff, #ffffff, #68496f, #441e4d, #68496f, #ffffff, #68496f, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 2px rgba(68, 30, 77, 0.1);
+  animation: flashFlow 8s ease-in-out infinite;
 }
 
 .text-block {
