@@ -2539,6 +2539,7 @@ a:hover {
   justify-content: center; /* Aligns children (columns) in the center of the container */
   align-items: center; /* Vertically centers the content if needed */
   margin: 0 auto;
+  flex-direction: column;
 }
 
 .floating-image {
