@@ -1,14 +1,22 @@
-const canvas = document.getElementById("mouseTrailCanvas");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+const ambientCanvas = document.createElement('canvas');
+document.body.appendChild(ambientCanvas);
+const ambientCtx = ambientCanvas.getContext('2d');
 
-let particles = [];
+ambientCanvas.style.position = 'fixed';
+ambientCanvas.style.top = '0';
+ambientCanvas.style.left = '0';
+ambientCanvas.style.width = '100%';
+ambientCanvas.style.height = '100%';
+ambientCanvas.style.zIndex = '-1'; // Send it to the back; adjust as needed
+ambientCanvas.width = window.innerWidth;
+ambientCanvas.height = window.innerHeight;
 
-class Particle3 {
+let ambientParticles = [];
+
+class AmbientParticle {
   constructor() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
+    this.x = Math.random() * ambientCanvas.width;
+    this.y = Math.random() * ambientCanvas.height;
     this.size = Math.random() * 3 + 1;
     this.speedX = Math.random() * 2 - 1;
     this.speedY = Math.random() * 2 - 1;
@@ -18,49 +26,52 @@ class Particle3 {
   update() {
     this.x += this.speedX;
     this.y += this.speedY;
-    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-    this.alpha -= 0.005; // Slower fade
+    
+    // Loop particles around the canvas
+    if (this.x < 0 || this.x > ambientCanvas.width) this.speedX *= -1;
+    if (this.y < 0 || this.y > ambientCanvas.height) this.speedY *= -1;
   }
 
   draw() {
-    ctx.save();
-    ctx.globalAlpha = this.alpha;
-    ctx.fillStyle = "purple";
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.restore();
+    ambientCtx.save();
+    ambientCtx.globalAlpha = this.alpha;
+    ambientCtx.fillStyle = 'purple';
+    ambientCtx.beginPath();
+    ambientCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ambientCtx.fill();
+    ambientCtx.restore();
   }
 }
 
-function handleParticles() {
-  for (let i = 0; i < particles.length; i++) {
-    particles[i].update();
-    particles[i].draw();
-    if (particles[i].alpha <= 0) {
-      particles[i] = new Particle3(); // Replace the dead particle
+function handleAmbientParticles() {
+  for (let i = 0; i < ambientParticles.length; i++) {
+    ambientParticles[i].update();
+    ambientParticles[i].draw();
+    if (ambientParticles[i].alpha <= 0) {
+      ambientParticles[i] = new AmbientParticle();
     }
   }
 }
 
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  handleParticles();
-  requestAnimationFrame(animate);
+function animateAmbient() {
+  console.log('Animating ambient particles'); // Debugging log
+  ambientCtx.clearRect(0, 0, ambientCanvas.width, ambientCanvas.height);
+  handleAmbientParticles();
+  requestAnimationFrame(animateAmbient);
 }
 
-function init() {
-  for (let i = 0; i < 50; i++) { // Adjust number of particles as needed
-    particles.push(new Particle3());
+
+function initAmbient() {
+  ambientParticles = [];
+  for (let i = 0; i < 50; i++) {
+    ambientParticles.push(new AmbientParticle());
   }
-  animate();
+  animateAmbient();
 }
 
-window.addEventListener("resize", function () {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  init(); // Reinitialize particles on resize
+window.addEventListener('resize', function () {
+  ambientCanvas.width = window.innerWidth;
+  ambientCanvas.height = window.innerHeight;
 });
 
-init(); // Start the animation
+initAmbient();
