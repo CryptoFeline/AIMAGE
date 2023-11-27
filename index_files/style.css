@@ -2491,6 +2491,43 @@ a:hover {
   width: 80%; /* Adjust this to your preferred maximum width */
   padding: 20px; /* Adds some space around the content */
   box-sizing: border-box; /* Ensures padding is included in width */
+  flex-direction: row-reverse;
+}
+
+.pricing-section-token {
+  display: flex;
+  justify-content: center; /* Aligns children (columns) in the center of the container */
+  align-items: center; /* Vertically centers the content if needed */
+  margin: 0 auto; /* Centers the section horizontally */
+  width: 80%; /* Adjust this to your preferred maximum width */
+  padding: 20px; /* Adds some space around the content */
+  box-sizing: border-box; /* Ensures padding is included in width */
+  flex-direction: row;
+  text-align: left;
+}
+
+.pricing-section-potion {
+  display: flex;
+  justify-content: center; /* Aligns children (columns) in the center of the container */
+  align-items: center; /* Vertically centers the content if needed */
+  margin: 0 auto; /* Centers the section horizontally */
+  width: 80%; /* Adjust this to your preferred maximum width */
+  padding: 20px; /* Adds some space around the content */
+  box-sizing: border-box; /* Ensures padding is included in width */
+  flex-direction: row-reverse;
+  text-align: right
+}
+
+.pricing-section-nft {
+  display: flex;
+  justify-content: center; /* Aligns children (columns) in the center of the container */
+  align-items: center; /* Vertically centers the content if needed */
+  margin: 0 auto; /* Centers the section horizontally */
+  width: 80%; /* Adjust this to your preferred maximum width */
+  padding: 20px; /* Adds some space around the content */
+  box-sizing: border-box; /* Ensures padding is included in width */
+  flex-direction: row;
+  text-align: left
 }
 
 .testimonial-content {
@@ -2509,6 +2546,13 @@ a:hover {
   position: relative;
   animation: float 3s ease-in-out infinite;
   text-align: right;
+}
+
+.floating-image-potion {
+  flex-basis: 50%; /* Adjust width as needed */
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+  text-align: left;
 }
 
 @keyframes float {
@@ -4544,6 +4588,11 @@ ul li.price {
     text-align: center; /* Centers the content */
   }
 
+  .floating-image-potion {
+    flex-basis: 100%; /* Each takes full width */
+    text-align: center; /* Centers the content */
+  }
+
   .floating-image img {
     width: 50%; /* Adjust image size for smaller screens */
     margin: 0 auto; /* Center the image */
@@ -4555,6 +4604,21 @@ ul li.price {
 @media (max-width: 700px) {
   .testimonial-section {
     width: 95%; /* Increase width to utilize more screen space */
+    flex-direction: column-reverse;
+  }
+
+  .pricing-section-token {
+    width: 95%; /* Adjust this to your preferred maximum width */
+    flex-direction: column-reverse;
+  }
+  
+  .pricing-section-potion {
+    width: 95%; /* Adjust this to your preferred maximum width */
+    flex-direction: column-reverse;
+  }
+  
+  .pricing-section-nft {
+    width: 95%; /* Adjust this to your preferred maximum width */
     flex-direction: column-reverse;
   }
 
