@@ -3909,7 +3909,6 @@ ul li.price {
 .testimonial-collection-list {
   width: 100%;
   grid-column-gap: 24px;
-  grid-row-gap: 24px;
   display: flex;
   justify-content: space-around;
 }
@@ -3964,6 +3963,10 @@ ul li.price {
   .image {
     max-width: 35rem;
     min-width: 18rem;
+  }
+
+  .pricing-card {
+    transform: scale(0.9);
   }
 
   .button-secondary.show-tablet {
@@ -4201,8 +4204,11 @@ ul li.price {
 
   .testimonial-collection-list {
     grid-column-gap: 32px;
-    grid-row-gap: 32px;
     flex-direction: column;
+  }
+
+  .testimonial-collection-list .collection-item:nth-child(2) {
+    order: 3;
   }
 
   .collection-item {
