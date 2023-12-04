@@ -2649,6 +2649,25 @@ a:hover {
   text-align: left;
 }
 
+.about-section-background-2 {
+  display: flex;
+  justify-content: center; /* Aligns children (columns) in the center of the container */
+  align-items: center; /* Vertically centers the content if needed */
+  margin: 0 auto; /* Centers the section horizontally */
+  width: 100%; /* Adjust this to your preferred maximum width */
+  padding: 10px; /* Adds some space around the content */
+  box-sizing: border-box; /* Ensures padding is included in width */
+  flex-direction: row;
+  text-align: right;
+}
+
+.about-section-background-2 .floating-image {
+  flex-basis: 50%; /* Adjust width as needed */
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+  text-align: left;
+}
+
 .about-section-introduction {
   display: flex;
   justify-content: center; /* Aligns children (columns) in the center of the container */
@@ -5236,6 +5255,10 @@ ul li.price {
     text-align: center; /* Centers the content */
   }
 
+  .hidden-mobile {
+    display: none;
+  }
+
   .floating-image-potion {
     flex-basis: 100%; /* Each takes full width */
     text-align: center; /* Centers the content */
@@ -5283,6 +5306,18 @@ ul li.price {
   }
 
   .about-section-background .floating-image {
+    margin-top: -50px;
+    margin-bottom: 20px;
+    text-align: center
+  }
+
+  .about-section-background-2 {
+    width: 95%; /* Adjust this to your preferred maximum width */
+    flex-direction: column-reverse;
+    margin-top: 50px
+  }
+
+  .about-section-background-2 .floating-image {
     margin-top: -50px;
     margin-bottom: 20px;
     text-align: center
