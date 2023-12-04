@@ -5074,6 +5074,10 @@ ul li.price {
     padding: 60px 15px;
   }
 
+  .pricing-collection-grid {
+    display: list-item;
+  }
+
   .w-nav-brand-header {
     width: 30%;
   }
