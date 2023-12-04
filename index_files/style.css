@@ -2403,7 +2403,7 @@ a:hover {
   animation: glowing 1.5s ease infinite
 }
 
-/* Purple glowing */
+/* Glowing Purple */
 @keyframes glowing {
   0% {
     box-shadow:
@@ -2443,7 +2443,7 @@ a:hover {
   animation: glowing 1.5s infinite alternate;
 }
 
-/* Green glowing */
+/* Glowing green */
 @keyframes glowing2 {
   0% {
     box-shadow:
@@ -2483,7 +2483,7 @@ a:hover {
   animation: glowing2 1.5s infinite alternate;
 }
 
-/* Green orange */
+/* Glowing orange */
 @keyframes glowing3 {
   0% {
     box-shadow:
@@ -2521,6 +2521,86 @@ a:hover {
 
 .glowing-orange {
   animation: glowing3 1.5s infinite alternate;
+}
+
+/* Green red */
+@keyframes glowing4 {
+  0% {
+    box-shadow:
+      0 0 5px #ffffff,
+      0 0 10px #d5909d,
+      0 0 15px #ba3f58,
+      0 0 20px #9c0221,
+      0 0 25px #9c0221,
+      0 0 30px #9c0221,
+      0 0 35px #9c0221;
+  }
+
+  50% {
+    box-shadow:
+      0 0 10px #ffffff,
+      0 0 20px #d5909d,
+      0 0 30px #ba3f58,
+      0 0 40px #9c0221,
+      0 0 50px #9c0221,
+      0 0 60px #9c0221,
+      0 0 70px #9c0221;
+  }
+
+  100% {
+    box-shadow:
+      0 0 5px #ffffff,
+      0 0 10px #d5909d,
+      0 0 15px #ba3f58,
+      0 0 20px #9c0221,
+      0 0 25px #9c0221,
+      0 0 30px #9c0221,
+      0 0 35px #9c0221;
+  }
+}
+
+.glowing-red {
+  animation: glowing4 1.5s infinite alternate;
+}
+
+/* Green blue */
+@keyframes glowing5 {
+  0% {
+    box-shadow:
+      0 0 5px #ffffff,
+      0 0 10px #8dccd0,
+      0 0 15px #4cb4bb,
+      0 0 20px #02929c,
+      0 0 25px #02929c,
+      0 0 30px #02929c,
+      0 0 35px #02929c;
+  }
+
+  50% {
+    box-shadow:
+      0 0 10px #ffffff,
+      0 0 20px #8dccd0,
+      0 0 30px #4cb4bb,
+      0 0 40px #02929c,
+      0 0 50px #02929c,
+      0 0 60px #02929c,
+      0 0 70px #02929c;
+  }
+
+  100% {
+    box-shadow:
+      0 0 5px #ffffff,
+      0 0 10px #8dccd0,
+      0 0 15px #4cb4bb,
+      0 0 20px #02929c,
+      0 0 25px #02929c,
+      0 0 30px #02929c,
+      0 0 35px #02929c;
+  }
+}
+
+.glowing-blue {
+  animation: glowing5 1.5s infinite alternate;
 }
 
 @keyframes textglow {
@@ -2767,6 +2847,20 @@ a:hover {
 	border-radius: 5px;
 }
 
+.section-team .single-person-red {
+	margin-top: 30px;
+	padding: 30px;
+	background-color: transparent;
+	border-radius: 5px;
+}
+
+.section-team .single-person-blue {
+	margin-top: 30px;
+	padding: 30px;
+	background-color: transparent;
+	border-radius: 5px;
+}
+
 .section-team .single-person .person-image {
     position: relative;
     margin-bottom: 50px;
@@ -2788,6 +2882,20 @@ a:hover {
   border: 0px solid white;
 }
 
+.section-team .single-person-red .person-image {
+  position: relative;
+  margin-bottom: 50px;
+  border-radius: 50%;
+  border: 0px solid white;
+}
+
+.section-team .single-person-blue .person-image {
+  position: relative;
+  margin-bottom: 50px;
+  border-radius: 50%;
+  border: 0px solid white;
+}
+
 .section-team .single-person:hover .person-image {
     border: 0px solid #fff;
   animation: glowing 1.5s ease infinite  
@@ -2803,6 +2911,16 @@ a:hover {
   animation: glowing3 1.5s ease infinite  
 }
 
+.section-team .single-person-red:hover .person-image {
+  border: 0px solid #fff;
+  animation: glowing4 1.5s ease infinite  
+}
+
+.section-team .single-person-blue:hover .person-image {
+  border: 0px solid #fff;
+  animation: glowing5 1.5s ease infinite  
+}
+
 .section-team .single-person .person-image img {
 	width: 100%;
     border-radius: 50%;
@@ -2814,6 +2932,16 @@ a:hover {
 }
 
 .section-team .single-person-orange .person-image img {
+	width: 100%;
+    border-radius: 50%;
+}
+
+.section-team .single-person-red .person-image img {
+	width: 100%;
+    border-radius: 50%;
+}
+
+.section-team .single-person-blue .person-image img {
 	width: 100%;
     border-radius: 50%;
 }
@@ -2893,6 +3021,56 @@ a:hover {
   animation: glowing3 1.5s ease infinite
 }
 
+.section-team .single-person-red .person-image .icon {
+	position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,50%);
+    display: flex;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background: linear-gradient(to right, #451F4E, #9235a7);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-team .single-person-red:hover .person-image .icon {
+	background: none;
+	background-color: #fff;
+	color: var(--red);
+  animation: glowing4 1.5s ease infinite
+}
+
+.section-team .single-person-blue .person-image .icon {
+	position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,50%);
+    display: flex;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background: linear-gradient(to right, #451F4E, #9235a7);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-team .single-person-blue:hover .person-image .icon {
+	background: none;
+	background-color: #fff;
+	color: var(--blue);
+  animation: glowing5 1.5s ease infinite
+}
+
 .section-team .single-person .person-info .full-name {
 	margin-bottom: 10px;
 	font-size: 20px;
@@ -2947,6 +3125,44 @@ a:hover {
 
 .section-team .single-person-orange:hover .full-name,
 .section-team .single-person-orange:hover .speciality {
+	color: #fff;
+}
+
+.section-team .single-person-red .person-info .full-name {
+	margin-bottom: 10px;
+	font-size: 20px;
+    font-weight: 700;
+  text-align: center;  
+}
+
+.section-team .single-person-red .person-info .speciality {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: var(--primary);
+    text-align: center;
+}
+
+.section-team .single-person-red:hover .full-name,
+.section-team .single-person-red:hover .speciality {
+	color: #fff;
+}
+
+.section-team .single-person-blue .person-info .full-name {
+	margin-bottom: 10px;
+	font-size: 20px;
+    font-weight: 700;
+  text-align: center;  
+}
+
+.section-team .single-person-blue .person-info .speciality {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: var(--primary);
+    text-align: center;
+}
+
+.section-team .single-person-blue:hover .full-name,
+.section-team .single-person-blue:hover .speciality {
 	color: #fff;
 }
 
@@ -5036,6 +5252,16 @@ ul li.price {
   }
 
   .section-team .single-person-orange .person-image .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .section-team .single-person-red .person-image .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .section-team .single-person-blue .person-image .icon {
     width: 40px;
     height: 40px;
   }
