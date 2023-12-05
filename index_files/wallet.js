@@ -1,7 +1,6 @@
 // Check if window.ethereum is available
 if (window.ethereum) {
     document.addEventListener('DOMContentLoaded', (event) => {
-        // Use a class selector or unique IDs
         const connectButtons = document.querySelectorAll('.connectWalletButton');
         connectButtons.forEach(button => {
             button.addEventListener('click', async () => {
@@ -27,9 +26,8 @@ if (window.ethereum) {
                         throw new Error('Failed to submit signature');
                     }
 
-                    // Display the URL or navigate to it
                     console.log("One-Time URL:", oneTimeUrl);
-                    window.location.href = oneTimeUrl; // Navigate to the URL
+                    window.location.href = oneTimeUrl;
                 } catch (error) {
                     console.error("Error in button click handler:", error);
                 }
@@ -55,18 +53,13 @@ if (window.ethereum) {
     }
 
     async function fetchNonce(userAddress) {
-        // Update with your new API endpoint
-        const response = await fetch('https://api.aimage.tools/getNonce', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ address: userAddress }),
+        const response = await fetch(`https://api.aimage.tools/getNonce/${userAddress}`, {
+            method: 'GET' // Assuming GET request for fetching nonce
         });
     
         const data = await response.json();
         return data.nonce;
-    }    
+    }  
 
     async function signNonce(nonce, userAddress) {
         const web3 = new Web3(window.ethereum);
@@ -74,18 +67,17 @@ if (window.ethereum) {
     }
 
     async function submitSignature(signature, userAddress) {
-        // Update with your new API endpoint
-        const response = await fetch('https://api.aimage.tools/verifySignature', {
+        const response = await fetch(`https://api.aimage.tools/verifySignature/${userAddress}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ signature: signature, address: userAddress }),
+            body: JSON.stringify({ signature: signature })
         });
     
         const data = await response.json();
         return data.oneTimeUrl;
-    } 
+    }
 } else {
     console.error("window.ethereum is not available. Please check if MetaMask is installed.");
 }
