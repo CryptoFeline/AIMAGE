@@ -58,13 +58,13 @@ template {
 
 a {
   background-color: rgba(0, 0, 0, 0);
-  cursor: url('./magic_mouse_link.svg'), auto;
+  cursor: url('./svg/magic_mouse_link.svg'), auto;
 }
 
 a:active,
 a:hover {
   outline: 0;
-  cursor: url('./magic_mouse_link.svg'), auto;
+  cursor: url('./svg/magic_mouse_link.svg'), auto;
 }
 
 abbr[title] {
@@ -3462,14 +3462,14 @@ ul li.price {
 }
 
 .layout-content.horizontal {
-  background-image: url("./feature4.svg"), url("./Background_pattern.svg");
+  background-image: url("./svg/feature4.svg"), url("./svg/Background_pattern.svg");
   background-position: 100% 100%, 290%;
   background-repeat: no-repeat, no-repeat;
   background-size: auto, auto;
 }
 
 .layout-content.vertical {
-  background-image: url("./feature3.png"), url("./Background_pattern_2.svg");
+  background-image: url("./img/feature3.png"), url("./svg/Background_pattern_2.svg");
   background-position: 100% 100%, 100% 100%;
   background-repeat: no-repeat, no-repeat;
   background-size: contain, auto;
@@ -3968,7 +3968,7 @@ ul li.price {
   grid-column-gap: 2rem;
   grid-row-gap: 4rem;
   background-color: rgba(255, 255, 255, .06);
-  background-image: url("./Background_pattern_2.svg");
+  background-image: url("./svg/Background_pattern_2.svg");
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: auto;
@@ -4148,7 +4148,7 @@ ul li.price {
   grid-row-gap: 24px;
   border: 1px solid var(--gray-800);
   background-color: rgba(255, 255, 255, .06);
-  background-image: url("./Background_pattern_2.svg");
+  background-image: url("./svg/Background_pattern_2.svg");
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: auto;
@@ -4220,7 +4220,7 @@ ul li.price {
   grid-row-gap: 24px;
   border: 2px solid var(--white);
   background-color: rgba(255, 255, 255, .06);
-  background-image: url("./Background_pattern_2.svg");
+  background-image: url("./svg/Background_pattern_2.svg");
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: auto;
@@ -4240,7 +4240,7 @@ ul li.price {
   grid-row-gap: 24px;
   border: 2px solid var(--white);
   background-color: rgba(255, 255, 255, .06);
-  background-image: url("./Background_pattern_2.svg");
+  background-image: url("./svg/Background_pattern_2.svg");
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: auto;
