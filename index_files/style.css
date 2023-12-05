@@ -1,3 +1,5 @@
+@import url(https://db.onlinewebfonts.com/c/32d0ba9a82b15c3100ae9dd9e614ef11?family=HelveticaNeue-Extended);
+
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -5604,8 +5606,6 @@ ul li.price {
     margin-top: 30%;
   }
 }
-
-@import url(https://db.onlinewebfonts.com/c/32d0ba9a82b15c3100ae9dd9e614ef11?family=HelveticaNeue-Extended);
 
 @font-face {
   font-family: "HelveticaNeue-Extended";
