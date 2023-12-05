@@ -1,9 +1,10 @@
 // Check if window.ethereum is available
 if (window.ethereum) {
     document.addEventListener('DOMContentLoaded', (event) => {
-        const connectButton = document.getElementById('connectWalletButton');
-        if (connectButton) {
-            connectButton.addEventListener('click', async () => {
+        // Use a class selector or unique IDs
+        const connectButtons = document.querySelectorAll('.connectWalletButton');
+        connectButtons.forEach(button => {
+            button.addEventListener('click', async () => {
                 console.log("Button clicked");
                 try {
                     const userAddress = await connectWallet();
@@ -33,9 +34,7 @@ if (window.ethereum) {
                     console.error("Error in button click handler:", error);
                 }
             });
-        } else {
-            console.error("Connect wallet button not found.");
-        }
+        });
     });
 
     async function connectWallet() {
