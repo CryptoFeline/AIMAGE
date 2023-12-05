@@ -9,7 +9,7 @@ html {
 body {
   margin: 0;
   cursor:
-    url('./magic_mouse.svg'), auto;
+    url('./svg/magic_mouse.svg'), auto;
   overflow: hidden; /* This prevents scrolling */
 }
 
