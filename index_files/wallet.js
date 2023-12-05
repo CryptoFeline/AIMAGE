@@ -1,10 +1,14 @@
 document.getElementById('connectWalletButton').addEventListener('click', async () => {
     try {
         const userAddress = await connectWallet();
+        if (!userAddress) {
+            throw new Error('Wallet connection failed');
+        }
+
         const nonce = await fetchNonce(userAddress);
         const signature = await signNonce(nonce, userAddress);
         const oneTimeUrl = await submitSignature(signature, userAddress);
-        
+
         // Display the URL or navigate to it
         console.log("One-Time URL:", oneTimeUrl);
         window.location.href = oneTimeUrl; // Navigate to the URL
