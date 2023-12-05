@@ -1,38 +1,44 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    console.log("Script loaded");
-    document.getElementById('connectWalletButton').addEventListener('click', async () => {
-        console.log("Button clicked");
-        try {
-            const userAddress = await connectWallet();
-            if (!userAddress) {
-                throw new Error('Wallet connection failed');
-            }
+// Check if window.ethereum is available
+if (window.ethereum) {
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const connectButton = document.getElementById('connectWalletButton');
+        if (connectButton) {
+            connectButton.addEventListener('click', async () => {
+                console.log("Button clicked");
+                try {
+                    const userAddress = await connectWallet();
+                    if (!userAddress) {
+                        throw new Error('Wallet connection failed');
+                    }
 
-            const nonce = await fetchNonce(userAddress);
-            if (!nonce) {
-                throw new Error('Failed to fetch nonce');
-            }
+                    const nonce = await fetchNonce(userAddress);
+                    if (!nonce) {
+                        throw new Error('Failed to fetch nonce');
+                    }
 
-            const signature = await signNonce(nonce, userAddress);
-            if (!signature) {
-                throw new Error('Failed to sign nonce');
-            }
+                    const signature = await signNonce(nonce, userAddress);
+                    if (!signature) {
+                        throw new Error('Failed to sign nonce');
+                    }
 
-            const oneTimeUrl = await submitSignature(signature, userAddress);
-            if (!oneTimeUrl) {
-                throw new Error('Failed to submit signature');
-            }
+                    const oneTimeUrl = await submitSignature(signature, userAddress);
+                    if (!oneTimeUrl) {
+                        throw new Error('Failed to submit signature');
+                    }
 
-            // Display the URL or navigate to it
-            console.log("One-Time URL:", oneTimeUrl);
-            window.location.href = oneTimeUrl; // Navigate to the URL
-        } catch (error) {
-            console.error("An error occurred:", error);
+                    // Display the URL or navigate to it
+                    console.log("One-Time URL:", oneTimeUrl);
+                    window.location.href = oneTimeUrl; // Navigate to the URL
+                } catch (error) {
+                    console.error("Error in button click handler:", error);
+                }
+            });
+        } else {
+            console.error("Connect wallet button not found.");
         }
     });
 
     async function connectWallet() {
-    if (window.ethereum) {
         try {
             // Check if any accounts are already connected
             const accounts = await window.ethereum.request({ method: 'eth_accounts' });
@@ -47,10 +53,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         } catch (error) {
             console.error("An error occurred during wallet connection:", error);
         }
-    } else {
-        console.log("Non-Ethereum browser detected. You should consider trying MetaMask!");
     }
-}
 
     async function fetchNonce(userAddress) {
         // Update with your new API endpoint
@@ -84,4 +87,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const data = await response.json();
         return data.oneTimeUrl;
     } 
-});
+} else {
+    console.error("window.ethereum is not available. Please check if MetaMask is installed.");
+}
