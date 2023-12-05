@@ -6,8 +6,19 @@ document.getElementById('connectWalletButton').addEventListener('click', async (
         }
 
         const nonce = await fetchNonce(userAddress);
+        if (!nonce) {
+            throw new Error('Failed to fetch nonce');
+        }
+
         const signature = await signNonce(nonce, userAddress);
+        if (!signature) {
+            throw new Error('Failed to sign nonce');
+        }
+
         const oneTimeUrl = await submitSignature(signature, userAddress);
+        if (!oneTimeUrl) {
+            throw new Error('Failed to submit signature');
+        }
 
         // Display the URL or navigate to it
         console.log("One-Time URL:", oneTimeUrl);
