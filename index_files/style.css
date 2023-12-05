@@ -2216,7 +2216,7 @@ textarea.w-select {
 :root {
   --gray-300: #b3b3b3;
   --yellow-green-700: #7aa35a;
-  --primary: #451F4E;
+  --primary: #6b2a7b;
   --gray-800: #222;
   --white: #ececec;
   --gray-500: #757575;
@@ -2330,7 +2330,7 @@ p {
 
 a {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
   display: block;
 }
 
@@ -2410,10 +2410,10 @@ a:hover {
       0 0 5px #ffffff,
       0 0 10px #c6b3ca,
       0 0 15px #93669d,
-      0 0 20px #441e4d,
-      0 0 25px #441e4d,
-      0 0 30px #441e4d,
-      0 0 35px #441e4d;
+      0 0 20px #6b2a7b,
+      0 0 25px #6b2a7b,
+      0 0 30px #6b2a7b,
+      0 0 35px #6b2a7b;
   }
 
   50% {
@@ -2421,10 +2421,10 @@ a:hover {
       0 0 10px #ffffff,
       0 0 20px #c6b3ca,
       0 0 30px #93669d,
-      0 0 40px #441e4d,
-      0 0 50px #441e4d,
-      0 0 60px #441e4d,
-      0 0 70px #441e4d;
+      0 0 40px #6b2a7b,
+      0 0 50px #6b2a7b,
+      0 0 60px #6b2a7b,
+      0 0 70px #6b2a7b;
   }
 
   100% {
@@ -2432,10 +2432,10 @@ a:hover {
       0 0 5px #ffffff,
       0 0 10px #c6b3ca,
       0 0 15px #93669d,
-      0 0 20px #441e4d,
-      0 0 25px #441e4d,
-      0 0 30px #441e4d,
-      0 0 35px #441e4d;
+      0 0 20px #6b2a7b,
+      0 0 25px #6b2a7b,
+      0 0 30px #6b2a7b,
+      0 0 35px #6b2a7b;
   }
 }
 
@@ -2609,10 +2609,10 @@ a:hover {
       0 0 5px #ffffff,
       0 0 10px #c6b3ca,
       0 0 15px #93669d,
-      0 0 20px #441e4d,
-      0 0 25px #441e4d,
-      0 0 30px #441e4d,
-      0 0 35px #441e4d;
+      0 0 20px #6b2a7b,
+      0 0 25px #6b2a7b,
+      0 0 30px #6b2a7b,
+      0 0 35px #6b2a7b;
   }
 
   50% {
@@ -2620,10 +2620,10 @@ a:hover {
       0 0 10px #ffffff,
       0 0 20px #c6b3ca,
       0 0 30px #93669d,
-      0 0 40px #441e4d,
-      0 0 50px #441e4d,
-      0 0 60px #441e4d,
-      0 0 70px #441e4d;
+      0 0 40px #6b2a7b,
+      0 0 50px #6b2a7b,
+      0 0 60px #6b2a7b,
+      0 0 70px #6b2a7b;
   }
 
   100% {
@@ -2631,10 +2631,10 @@ a:hover {
       0 0 5px #ffffff,
       0 0 10px #c6b3ca,
       0 0 15px #93669d,
-      0 0 20px #441e4d,
-      0 0 25px #441e4d,
-      0 0 30px #441e4d,
-      0 0 35px #441e4d;
+      0 0 20px #6b2a7b,
+      0 0 25px #6b2a7b,
+      0 0 30px #6b2a7b,
+      0 0 35px #6b2a7b;
   }
 }
 
@@ -2642,7 +2642,7 @@ a:hover {
   grid-column-gap: .5rem;
   color: #fff;
   text-align: center;
-  background-color: #441e4d;
+  background-color: #6b2a7b;
   border-radius: 10rem;
   justify-content: center;
   align-items: center;
@@ -2956,7 +2956,7 @@ a:hover {
     height: 60px;
     line-height: 60px;
     text-align: center;
-    background: linear-gradient(to right, #451F4E, #9235a7);
+    background: linear-gradient(to right, #6b2a7b, #9235a7);
     color: #fff;
     border-radius: 50%;
     font-size: 24px;
@@ -2981,7 +2981,7 @@ a:hover {
     height: 60px;
     line-height: 60px;
     text-align: center;
-    background: linear-gradient(to right, #451F4E, #9235a7);
+    background: linear-gradient(to right, #6b2a7b, #9235a7);
     color: #fff;
     border-radius: 50%;
     font-size: 24px;
@@ -3006,7 +3006,7 @@ a:hover {
     height: 60px;
     line-height: 60px;
     text-align: center;
-    background: linear-gradient(to right, #451F4E, #9235a7);
+    background: linear-gradient(to right, #6b2a7b, #9235a7);
     color: #fff;
     border-radius: 50%;
     font-size: 24px;
@@ -3031,7 +3031,7 @@ a:hover {
     height: 60px;
     line-height: 60px;
     text-align: center;
-    background: linear-gradient(to right, #451F4E, #9235a7);
+    background: linear-gradient(to right, #6b2a7b, #9235a7);
     color: #fff;
     border-radius: 50%;
     font-size: 24px;
@@ -3056,7 +3056,7 @@ a:hover {
     height: 60px;
     line-height: 60px;
     text-align: center;
-    background: linear-gradient(to right, #451F4E, #9235a7);
+    background: linear-gradient(to right, #6b2a7b, #9235a7);
     color: #fff;
     border-radius: 50%;
     font-size: 24px;
@@ -3603,7 +3603,7 @@ ul li.price {
 }
 
 .icon-wrapper {
-  color: #441e4d;
+  color: #6b2a7b;
   flex: none;
   margin-right: 16px;
 }
@@ -4676,7 +4676,7 @@ ul li.price {
   0%,
   30% {
     background-position: -50% 0%;
-    color: #441e4d;
+    color: #6b2a7b;
   }
 
   15% {
@@ -4687,12 +4687,12 @@ ul li.price {
   30%,
   100% {
     background-position: -50% 0%;
-    color: #441e4d;
+    color: #6b2a7b;
   }
 }
 
 .animated_text {
-  background: linear-gradient(-45deg, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #68496f, #ffffff, #ffffff, #68496f, #441e4d, #68496f, #ffffff, #68496f, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d, #441e4d);
+  background: linear-gradient(-45deg, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #68496f, #ffffff, #ffffff, #68496f, #6b2a7b, #68496f, #ffffff, #68496f, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b, #6b2a7b);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;
