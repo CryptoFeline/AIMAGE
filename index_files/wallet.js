@@ -32,17 +32,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     async function connectWallet() {
-        if (window.ethereum) {
-            try {
-                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    if (window.ethereum) {
+        try {
+            // Check if any accounts are already connected
+            const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+            if (accounts.length > 0) {
+                // If an account is already connected, return it
                 return accounts[0];
-            } catch (error) {
-                console.error("User denied account access");
+            } else {
+                // If no accounts are connected, request connection
+                const requestedAccounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                return requestedAccounts[0];
             }
-        } else {
-            console.log("Non-Ethereum browser detected. You should consider trying MetaMask!");
+        } catch (error) {
+            console.error("An error occurred during wallet connection:", error);
         }
+    } else {
+        console.log("Non-Ethereum browser detected. You should consider trying MetaMask!");
     }
+}
 
     async function fetchNonce(userAddress) {
         // Update with your new API endpoint
