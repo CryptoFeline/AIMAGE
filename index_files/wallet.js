@@ -62,16 +62,3 @@ async function submitSignature(signature, userAddress) {
     const data = await response.json();
     return data.oneTimeUrl;
 }
-
-async function main() {
-    const userAddress = await connectWallet();
-    const nonce = await fetchNonce(userAddress);
-    const signature = await signNonce(nonce, userAddress);
-    const oneTimeUrl = await submitSignature(signature, userAddress);
-    
-    // Display the URL or navigate to it
-    console.log("One-Time URL:", oneTimeUrl);
-    window.location.href = oneTimeUrl; // Navigate to the URL
-}
-
-main().catch(console.error);
