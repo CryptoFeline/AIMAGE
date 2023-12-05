@@ -53,7 +53,7 @@ if (window.ethereum) {
     }
 
     async function fetchNonce(userAddress) {
-        const response = await fetch(`https://api.aimage.tools/getNonce/${userAddress}`, {
+        const response = await fetch(`http://api.aimage.tools/getNonce/${userAddress}`, {
             method: 'GET' // Assuming GET request for fetching nonce
         });
     
@@ -67,7 +67,7 @@ if (window.ethereum) {
     }
 
     async function submitSignature(signature, userAddress) {
-        const response = await fetch(`https://api.aimage.tools/verifySignature/${userAddress}`, {
+        const response = await fetch(`http://api.aimage.tools/verifySignature/${userAddress}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
