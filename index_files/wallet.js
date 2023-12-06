@@ -83,8 +83,8 @@ if (typeof Web3 !== 'undefined') {
         
             const web3 = new Web3(window.ethereum);
             try {
-                // Pass null for the third parameter
-                return await web3.eth.personal.sign(nonce, userAddress, null);
+                // Omit the third parameter
+                return await web3.eth.personal.sign(nonce, userAddress);
             } catch (error) {
                 console.error('Error signing nonce:', error);
                 throw error; // Rethrow the error to be caught in the outer try-catch
