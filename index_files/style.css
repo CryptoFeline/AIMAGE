@@ -222,13 +222,186 @@ optgroup {
 }
 
 table {
-  border-collapse: collapse;
+  width: auto;
+  max-width: 90%;
+  text-align: left;
   border-spacing: 0;
+  border-collapse: collapse;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: auto;
 }
 
-td,
+th,
+td {
+  font-family: inherit;
+  font-size: 0.875em;
+  line-height: 1.45;
+  color: #666;
+  vertical-align: middle;
+  padding: 1em;
+}
 th {
-  padding: 0;
+  font-weight: 600;
+}
+
+colgroup:nth-child(1) {
+  width: 20%;
+  border: 0 none;
+}
+colgroup:nth-child(2) {
+  width: auto;
+  border: 1px solid #ccc;
+}
+colgroup:nth-child(3) {
+  width: auto;
+  border: 5px solid var(--white);
+  background:rgba(88, 13, 146, 0.287)
+}
+colgroup:nth-child(4) {
+  width: auto;
+  border: 1px solid #ccc;
+}
+colgroup:nth-child(5) {
+  width: auto;
+  border: 1px solid #ccc;
+}
+
+/* Tablehead */
+
+thead th {
+  background: transparent;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid white;
+  padding: 3em 0 2em;
+  font-weight: 400;
+  color: #999;
+}
+thead th:nth-child(1) {
+  background: transparent;
+}
+thead th:nth-child(3) {
+  padding: 2em 0 5em;
+}
+thead th h2 {
+  font-weight: 300;
+  font-size: 2em;
+  line-height: 1.2;
+  color: var(--primary);
+}
+thead th h2 + p {
+  font-size: 1em;
+  line-height: 1.4;
+}
+thead th:nth-child(3) h2 {
+  font-size: 3em;
+  color: white;
+  animation: textglow 1.5s ease infinite
+}
+
+thead th p.promo {
+  font-size: 1em;
+  color: transparent;
+  position: absolute;
+  bottom: 1em;
+  z-index: 1000;
+  left: -5%;
+  width: 110%;
+  margin: 0;
+  padding: 0.625em 17px 0.75em;
+  background: var(--primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid #ccc;
+}
+
+thead th p.promo:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 7px 7px 0;
+  border-color: transparent #ccc transparent transparent;
+  bottom: -7px;
+  left: 0;
+}
+thead th p.promo:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 7px 7px 0 0;
+  border-color: #ccc transparent transparent transparent;
+  bottom: -7px;
+  right: 0;
+}
+
+/* Tablebody */
+
+tbody th {
+  background: transparent;
+  border-left: 1px solid white;
+}
+tbody th span {
+  font-weight: normal;
+  font-size: 87.5%;
+  color: #999;
+  display: block;
+}
+
+tbody td {
+  background: transparent;
+  text-align: center;
+}
+
+tbody td:nth-child(3) {
+  color: white;
+}
+
+tbody tr:nth-child(even) th,
+tbody tr:nth-child(even) td {
+  background: transparent;
+  border: 1px solid white;
+  border-width: 1px 0 1px 1px;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0 none;
+}
+
+/* Tablefooter */
+
+tfoot th {
+  padding: 2em 1em;
+  border-top: 1px solid white;
+}
+tfoot td {
+  text-align: center;
+  padding: 2em 1em;
+  border-top: 1px solid white;
+}
+
+tfoot a {
+  white-space: nowrap; /* Prevent text from wrapping onto multiple lines */
+  overflow: hidden; /* Prevent content from spilling outside */
+  text-overflow: ellipsis; /* Add an ellipsis if the content is too long */
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 1.125em 2em;
+  background: var(--primary);
+  border-radius: 0.5em;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @font-face {
@@ -1022,6 +1195,38 @@ textarea.w-select {
 
   .w-col-small-12 {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  
+  .table-responsive table {
+    /* Allow the table to be wider than the screen and scrollable */
+    min-width: 600px; /* Set a minimum width that you think is appropriate for your content */
+    margin: 5%
+  }
+
+  .table-responsive th,
+  .table-responsive td {
+    padding: 0.5em; /* Smaller padding on mobile */
+    font-size: 0.75em; /* Smaller font size for mobile */
+  }
+
+  thead th h2,
+  thead th p {
+    font-size: 1rem; /* Smaller font size for headers on mobile */
+  }
+
+  thead th:nth-child(3) h2 {
+    font-size: 1.5em;
+  }
+
+  .button_active {
+    font-size: 0.7rem
+  }
+  tfoot a {
+    padding: 0.5em; /* Reduce padding on smaller screens */
+    font-size: 0.7em; /* Reduce font size if necessary */
   }
 }
 
@@ -2657,6 +2862,26 @@ a:hover {
   display: flex;
 }
 
+.button_active {
+  grid-column-gap: .5rem;
+  color: var(--primary);
+  text-align: center;
+  border-color: var(--white);
+  border: 1px solid var(--white);
+  background-color: var(--white);
+  border-radius: 10rem;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: all .3s cubic-bezier(.165, .84, .44, 1);
+  display: flex;
+  animation: glowing 1.5s infinite alternate;
+}
+
 .button:hover {
   border-color: var(--white);
   border: 1px solid var(--white);
@@ -3293,7 +3518,7 @@ a:hover {
 }
 
 #pricing p {
-  color: #666;
+  color: white;
 }
 
 .cards {
@@ -4188,7 +4413,7 @@ ul li.price {
 .pricing-header {
   width: 100%;
   justify-content: center;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   display: flex;
 }
 
@@ -4791,6 +5016,13 @@ ul li.price {
   display: flex;
 }
 
+@media screen and (max-width: 1200px) {
+  
+  ul li.price {
+    font-size: 2rem;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .image {
     max-width: 35rem;
@@ -5080,6 +5312,10 @@ ul li.price {
     display: list-item;
   }
 
+  .testimonial-collection-list {
+    display: none
+  }
+
   .w-nav-brand-header {
     width: 30%;
   }
@@ -5094,7 +5330,7 @@ ul li.price {
   }
 
   .button {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
 
   .button:hover {
