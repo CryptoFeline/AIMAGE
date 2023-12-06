@@ -3776,6 +3776,15 @@ ul li.price {
   text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
 }
 
+.button-tertiary.hide-tablet-2 {
+  color: var(--white);
+}
+
+.button-tertiary.hide-tablet-2:hover {
+  background-color: transparent;
+  text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+}
+
 .show-tablet {
   display: none;
 }
@@ -5308,6 +5317,10 @@ ul li.price {
     display: list-item;
   }
 
+  .testimonial-collection-list {
+    display: none
+  }
+
   .w-nav-brand-header {
     width: 30%;
   }
@@ -5468,6 +5481,14 @@ ul li.price {
 @media screen and (max-width: 479px) {
   .container {
     max-width: none;
+  }
+
+  .button-tertiary.hide-tablet {
+    display: none;
+  }
+
+  .button-tertiary.hide-tablet-2 {
+    font-size: 0.7rem;
   }
 
   .image {
