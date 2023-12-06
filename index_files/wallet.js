@@ -78,18 +78,18 @@ if (typeof Web3 !== 'undefined') {
         }
 
         async function signNonce(nonce, userAddress) {
-            console.log('Nonce:', nonce);
+            console.log('Nonce:', nonce);  
             console.log('User Address:', userAddress);
         
-            const web3 = new Web3(window.ethereum);
+            const web3 = new web3(window.ethereum);
             try {
-                // Omit the third parameter
-                return await web3.eth.personal.sign(nonce, userAddress);
+                // Pass an empty string as the third parameter
+                return await web3.eth.personal.sign(nonce, userAddress, "");
             } catch (error) {
                 console.error('Error signing nonce:', error);
                 throw error; // Rethrow the error to be caught in the outer try-catch
             }
-        }
+        }            
 
         async function submitSignature(signature, userAddress, nonce) {
             const response = await fetch(`https://api.aimage.tools/verifySignature/${userAddress}`, {
