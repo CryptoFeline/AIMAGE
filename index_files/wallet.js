@@ -58,11 +58,12 @@ if (window.ethereum) {
         try {
             const response = await fetch(`https://api.aimage.tools/getNonce/${userAddress}`);
             const data = await response.json();
-            // Check if the response has the message property and that it's not null
-            if (data.message && data.message.nonce) {
-                return data.message.nonce;
+            // The message field is a string, so we need to parse it to extract the nonce
+            if (data.message) {
+                const nonce = data.message.split('\n').find(line => line.startsWith('Nonce: '));
+                return nonce ? nonce.split('Nonce: ')[1] : null;
             } else {
-                console.error('Nonce not found in response:', data);
+                console.error('Message not found in response:', data);
                 return null;
             }
         } catch (error) {
