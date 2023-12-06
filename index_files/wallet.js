@@ -10,13 +10,11 @@ if (window.ethereum) {
                     if (!userAddress) {
                         throw new Error('Wallet connection failed');
                     }
-
-                    // Fetch the nonce from the message object
-                    const message = await fetchNonce(userAddress);
-                    if (!message) {
+            
+                    const nonce = await fetchNonce(userAddress);
+                    if (!nonce) {
                         throw new Error('Failed to fetch nonce');
                     }
-                    const nonce = message.message.nonce; // Assuming the nonce is in the message object
 
                     const signature = await signNonce(nonce, userAddress);
                     if (!signature) {
@@ -57,13 +55,21 @@ if (window.ethereum) {
     }
 
     async function fetchNonce(userAddress) {
-        const response = await fetch(`https://api.aimage.tools/getNonce/${userAddress}`, {
-            method: 'GET'
-        });
-    
-        const data = await response.json();
-        return data.message; // Adjusted to return the message object containing the nonce
-    }
+        try {
+            const response = await fetch(`https://api.aimage.tools/getNonce/${userAddress}`);
+            const data = await response.json();
+            // Check if the response has the message property and that it's not null
+            if (data.message && data.message.nonce) {
+                return data.message.nonce;
+            } else {
+                console.error('Nonce not found in response:', data);
+                return null;
+            }
+        } catch (error) {
+            console.error('Error fetching nonce:', error);
+            return null;
+        }
+    }    
 
     async function signNonce(nonce, userAddress) {
         const web3 = new Web3(window.ethereum);
