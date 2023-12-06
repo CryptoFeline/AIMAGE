@@ -11,20 +11,24 @@ if (window.ethereum) {
                         throw new Error('Wallet connection failed');
                     }
 
-                    const nonce = await fetchNonce(userAddress);
-                    if (!nonce) {
+                    // Fetch the nonce from the message object
+                    const message = await fetchNonce(userAddress);
+                    if (!message) {
                         throw new Error('Failed to fetch nonce');
                     }
+                    const nonce = message.message.nonce; // Assuming the nonce is in the message object
 
                     const signature = await signNonce(nonce, userAddress);
                     if (!signature) {
                         throw new Error('Failed to sign nonce');
                     }
 
-                    const oneTimeUrl = await submitSignature(signature, userAddress);
-                    if (!oneTimeUrl) {
+                    // Submit the signature and fetch the OTP
+                    const otpResponse = await submitSignature(signature, userAddress, nonce);
+                    if (!otpResponse) {
                         throw new Error('Failed to submit signature');
                     }
+                    const oneTimeUrl = otpResponse.OTP; // Assuming the one-time URL is in the OTP field
 
                     console.log("One-Time URL:", oneTimeUrl);
                     window.location.href = oneTimeUrl;
@@ -54,29 +58,29 @@ if (window.ethereum) {
 
     async function fetchNonce(userAddress) {
         const response = await fetch(`https://api.aimage.tools/getNonce/${userAddress}`, {
-            method: 'GET' // Assuming GET request for fetching nonce
+            method: 'GET'
         });
     
         const data = await response.json();
-        return data.nonce;
-    }  
+        return data.message; // Adjusted to return the message object containing the nonce
+    }
 
     async function signNonce(nonce, userAddress) {
         const web3 = new Web3(window.ethereum);
         return await web3.eth.personal.sign(nonce, userAddress);
     }
 
-    async function submitSignature(signature, userAddress) {
+    async function submitSignature(signature, userAddress, nonce) {
         const response = await fetch(`https://api.aimage.tools/verifySignature/${userAddress}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ signature: signature })
+            body: JSON.stringify({ signature: signature, nonce: nonce }) // Include nonce in the body as per API
         });
     
         const data = await response.json();
-        return data.oneTimeUrl;
+        return data; // Adjusted to return the full response object
     }
 } else {
     console.error("window.ethereum is not available. Please check if MetaMask is installed.");
