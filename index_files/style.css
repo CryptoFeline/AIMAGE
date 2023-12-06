@@ -5113,10 +5113,6 @@ ul li.price {
     background-color: rgba(0, 0, 0, 0);
   }
 
-  .hide-tablet {
-    display: none;
-  }
-
   .show-tablet {
     display: block;
   }
