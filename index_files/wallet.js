@@ -76,9 +76,12 @@ if (window.ethereum) {
     }    
 
     async function signNonce(nonce, userAddress) {
+        console.log('Nonce:', nonce);  // Check the nonce value
+        console.log('User Address:', userAddress);  // Check the user address
+    
         const web3 = new Web3(window.ethereum);
         return await web3.eth.personal.sign(nonce, userAddress);
-    }
+    }    
 
     async function submitSignature(signature, userAddress, nonce) {
         const response = await fetch(`https://api.aimage.tools/verifySignature/${userAddress}`, {
