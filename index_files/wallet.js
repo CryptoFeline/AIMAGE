@@ -78,11 +78,17 @@ if (typeof Web3 !== 'undefined') {
         }
 
         async function signNonce(nonce, userAddress) {
-            console.log('Nonce:', nonce);  // Check the nonce value
-            console.log('User Address:', userAddress);  // Check the user address
-
+            console.log('Nonce:', nonce);
+            console.log('User Address:', userAddress);
+        
             const web3 = new Web3(window.ethereum);
-            return await web3.eth.personal.sign(nonce, userAddress);
+            try {
+                // Pass null for the third parameter
+                return await web3.eth.personal.sign(nonce, userAddress, null);
+            } catch (error) {
+                console.error('Error signing nonce:', error);
+                throw error; // Rethrow the error to be caught in the outer try-catch
+            }
         }
 
         async function submitSignature(signature, userAddress, nonce) {
