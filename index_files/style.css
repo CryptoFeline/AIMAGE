@@ -2565,7 +2565,6 @@ a:hover {
     radial-gradient(circle at bottom right, rgb(128 44 151 / 30%) 0%, transparent 50%)
 }
 
-
 .section.cta {
   background-position: 50% 100%;
   background-repeat: no-repeat;
@@ -2608,6 +2607,66 @@ a:hover {
 .iframe {
   border: 2px solid white;
   animation: glowing 1.5s ease infinite
+}
+
+.copy-container {
+  position: relative; /* For positioning the confirmation text */
+  display: inline-block; /* Add this to keep the structure inline */
+  margin-top: -5%;
+  margin-bottom: 5%;
+}
+
+.copy-container:hover .contract-address {
+  animation: textglow 1.5s ease infinite;
+  color: white;
+}
+
+#number {
+  cursor: pointer;
+  display: inline-block;
+  overflow:clip;
+  position: relative; /* For positioning the confirmation text */
+}
+
+#confirmation {
+  visibility: hidden;
+  background-color: white;
+  color: var(--primary);
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 2px 5px;
+  position: absolute;
+  top: -30px;
+  left: 65%;
+  transform: translateX(-50%);
+  font-size: 0.75em;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+  animation: glowing 1.5s ease-in-out infinite
+}
+
+.short-address {
+  display: none;
+}
+
+/* Styles for mobile */
+@media screen and (max-width: 768px) {
+  .full-address {
+    display: none;
+  }
+
+  .short-address {
+    display: inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100px; /* Adjust as needed */
+  }
+
+  .contract-address {
+    max-width: 50%;
+  }
 }
 
 /* Glowing Purple */
