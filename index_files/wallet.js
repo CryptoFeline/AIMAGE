@@ -12,33 +12,34 @@ if (typeof Web3 !== 'undefined') {
                         if (!userAddress) {
                             throw new Error('Wallet connection failed');
                         }
-
+        
                         const nonce = await fetchNonce(userAddress);
                         if (!nonce) {
                             throw new Error('Failed to fetch nonce');
                         }
-
+        
                         const signature = await signNonce(nonce, userAddress);
                         if (!signature) {
                             throw new Error('Failed to sign nonce');
                         }
-
+        
                         // Submit the signature and fetch the OTP
                         const otpResponse = await submitSignature(signature, userAddress, nonce);
                         if (!otpResponse) {
                             throw new Error('Failed to submit signature');
                         }
-                        const oneTimeUrl = otpResponse.url; // Accessing the 'url' field instead of 'OTP'
-
-                        console.log("One-Time URL:", oneTimeUrl);
-                        window.location.href = oneTimeUrl;
+        
+                        // Log the entire response
+                        console.log("Response from submitSignature:", otpResponse);
+        
+                        // Removed the line that redirects to the one-time URL
                     } catch (error) {
                         console.error("Error in button click handler:", error);
                     }
                 });
             });
         });
-
+        
         async function connectWallet() {
             try {
                 // Check if any accounts are already connected
