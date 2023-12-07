@@ -28,7 +28,7 @@ if (typeof Web3 !== 'undefined') {
                         if (!otpResponse) {
                             throw new Error('Failed to submit signature');
                         }
-                        const oneTimeUrl = otpResponse.OTP; // Assuming the one-time URL is in the OTP field
+                        const oneTimeUrl = otpResponse.url; // Accessing the 'url' field instead of 'OTP'
 
                         console.log("One-Time URL:", oneTimeUrl);
                         window.location.href = oneTimeUrl;
