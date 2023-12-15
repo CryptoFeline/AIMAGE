@@ -1209,7 +1209,7 @@
         var doc = document;
         var $html = $("html");
         var $body = $("body");
-        var namespace = ".w-webflow-badge";
+        var namespace = "";
         var location = window.location;
         var isPhantom = /PhantomJS/i.test(navigator.userAgent);
         var fullScreenEvents = "fullscreenchange webkitfullscreenchange mozfullscreenchange msfullscreenchange";
